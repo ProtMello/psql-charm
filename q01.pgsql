@@ -1,4 +1,7 @@
-SELECT DISTINCT sname       --projection
-FROM Sailors
-JOIN Reserves USING(sid)    --natural join
-WHERE bid = 103;            --selection
+SELECT DISTINCT s.sname
+FROM Sailors s
+WHERE EXISTS (
+    SELECT 1 FROM Reserves r
+    WHERE r.sid = s.sid 
+    AND r.bid = 103
+);
