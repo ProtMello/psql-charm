@@ -1,6 +1,7 @@
 
 -- Drop existing tables if they exist (to ensure clean slate)
 BEGIN;
+
 DROP TABLE IF EXISTS reserves;
 DROP TABLE IF EXISTS boats;
 DROP TABLE IF EXISTS sailors;
@@ -69,4 +70,5 @@ INSERT INTO reserves (sid, bid, day) VALUES
 (64, 101, '1998-09-05'),
 (64, 102, '1998-09-08'),
 (74, 103, '1998-09-08');
+
 COMMIT;
