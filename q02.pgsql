@@ -1,4 +1,7 @@
+--Find the names of sailors who have reserved a red boat
+
 BEGIN;
+
 WITH red_r AS (
     SELECT DISTINCT r.sid
     FROM boats b
@@ -10,4 +13,5 @@ SELECT DISTINCT s.name        --projection
 FROM sailors s
 JOIN red_r 
 ON s.id = red_r.sid;
+
 COMMIT;
