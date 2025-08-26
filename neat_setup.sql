@@ -4,29 +4,29 @@ BEGIN;
     DROP TABLE IF EXISTS reserves;
     DROP TABLE IF EXISTS boats;
     DROP TABLE IF EXISTS sailors;
-COMMIT;
+
 
 -- Create Sailors table
-BEGIN;
+
     CREATE TABLE sailors (
         id INTEGER PRIMARY KEY,
         name TEXT,
         rating INTEGER,
         age REAL
     );
-COMMIT;
+
 
 -- Create Boats table
-BEGIN;
+
     CREATE TABLE boats (
         id INTEGER PRIMARY KEY,
         name TEXT,
         color TEXT
     );
-COMMIT;
+
 
 -- Create Reserves table
-BEGIN;
+
     CREATE TABLE reserves (
         sid INTEGER,
         bid INTEGER,
@@ -35,10 +35,10 @@ BEGIN;
         FOREIGN KEY (sid) REFERENCES sailors(id),
         FOREIGN KEY (bid) REFERENCES boats(id)
     );
-COMMIT;
+
 
 -- Insert into Sailors
-BEGIN;
+
     INSERT INTO sailors (id, name, rating, age) VALUES
     (22, 'Dustin', 7, 45.0),
     (31, 'Lubber', 8, 55.5),
@@ -52,19 +52,19 @@ BEGIN;
     (74, 'Horatio', 9, 35.0),
     (85, 'Art', 3, 25.5),
     (95, 'Bob', 3, 63.5);
-COMMIT;
+
 
 -- Insert into Boats 
-BEGIN;
+
     INSERT INTO boats (id, name, color) VALUES
     (101, 'Interlake', 'blue'),
     (102, 'Interlake', 'red'),
     (103, 'Clipper', 'green'),
     (104, 'Marine', 'red');
-COMMIT;
+
 
 -- Insert into Reserves 
-BEGIN;
+
     INSERT INTO reserves (sid, bid, day) VALUES
     (22, 101, '1996-10-10'),
     (58, 103, '1996-11-12'),
