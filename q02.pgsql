@@ -1,9 +1,13 @@
 BEGIN;
+WITH red_r AS (
+    SELECT DISTINCT r.sid
+    FROM boats b
+    JOIN reserves r
+    ON r.bid = b.id
+    WHERE b.color = 'red'
+)
 SELECT DISTINCT s.name        --projection
-FROM sailors AS s
-JOIN reserves AS r
-ON r.sid = s.id
-JOIN boats AS b 
-ON b.id = r.bid
-WHERE b.color = 'red';        --selection
+FROM sailors s
+JOIN red_r 
+ON s.id = red_r.sid;
 COMMIT;
