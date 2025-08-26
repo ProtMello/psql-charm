@@ -1,6 +1,7 @@
 BEGIN;
-    SELECT DISTINCT sname       --projection
-    FROM Sailors
-    JOIN Reserves USING (sid)   --equijoin
-    WHERE bid = 103;            --selection
+SELECT DISTINCT name       --projection
+FROM sailors AS s
+JOIN reserves AS r
+ON r.sid = s.id             --equijoin
+WHERE bid = 103;            --selection
 COMMIT;
