@@ -2,6 +2,9 @@
 
 BEGIN;
 
+PREPARE int_s AS
+
+
 SELECT DISTINCT s.name
 FROM sailors s
 WHERE NOT EXISTS (
@@ -11,5 +14,8 @@ WHERE NOT EXISTS (
     SELECT bid FROM reserves 
     WHERE sid = s.id
 );
+
+
+EXECUTE int_s;
 
 COMMIT;

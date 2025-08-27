@@ -2,6 +2,9 @@
 
 BEGIN;
 
+PREPARE red_over_20 AS
+
+
 SELECT DISTINCT id AS sid
 FROM sailors
 WHERE age > 20
@@ -11,5 +14,8 @@ FROM boats b
 JOIN reserves r
 ON r.bid = b.id
 WHERE b.color != 'red';
+
+
+EXECUTE red_over_20;
 
 COMMIT;

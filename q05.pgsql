@@ -2,6 +2,9 @@
 
 BEGIN;
 
+PREPARE s_red_green
+
+
 WITH green_s  AS (
     SELECT DISTINCT sid         --projection
     FROM boats b 
@@ -26,11 +29,18 @@ FROM sailors s
 JOIN red_green rg
 ON rg.sid = s.id;
 
+
+EXECUTE s_red_green;
+
 COMMIT;
 
 
+--version 2
 
 BEGIN;
+
+PREPARE s_red_green2
+
 
 WITH red_green AS (
     SELECT DISTINCT sid
@@ -43,5 +53,8 @@ WITH red_green AS (
 SELECT DISTINCT s.name
 FROM sailors s
 JOIN red_green rg ON rg.sid = s.id;
+
+
+EXECUTE s_red_green2;
 
 COMMIT;

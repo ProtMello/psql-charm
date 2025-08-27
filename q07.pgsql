@@ -2,6 +2,9 @@
 
 BEGIN;
 
+PREPARE s_two_b AS
+
+
 WITH rs AS (
     SELECT DISTINCT s.name,sid,bid
     FROM sailors s
@@ -13,5 +16,8 @@ FROM rs rs1
 CROSS JOIN rs rs2
 WHERE rs1.name = rs2.name
 AND rs1.bid != rs2.bid;
+
+
+EXECUTE s_two_b;
 
 COMMIT;
