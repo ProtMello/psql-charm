@@ -18,6 +18,6 @@ JOIN red_r
 ON s.id = red_r.sid;
 
 
-EXECUTE red_r;
+EXECUTE s_red;
 
 COMMIT;
