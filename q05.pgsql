@@ -2,7 +2,7 @@
 
 BEGIN;
 
-PREPARE s_red_green
+PREPARE s_red_green AS
 
 
 WITH green_s  AS (
@@ -39,7 +39,7 @@ COMMIT;
 
 BEGIN;
 
-PREPARE s_red_green2
+PREPARE s_red_green2 AS
 
 
 WITH red_green AS (
