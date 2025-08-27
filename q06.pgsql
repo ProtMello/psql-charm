@@ -26,7 +26,7 @@ redgreen_s AS (
 )
 SELECT DISTINCT s.name
 FROM sailors s
-JOIN redgreen rg
+JOIN redgreen_s rg
 ON rg.sid = s.id;
 
 
@@ -52,7 +52,7 @@ WITH redgreen_s AS (
 )
 SELECT DISTINCT s.name
 FROM sailors s
-JOIN red_green rg ON rg.sid = s.id;
+JOIN redgreen_s rg ON rg.sid = s.id;
 
 
 EXECUTE sname_rg2;
