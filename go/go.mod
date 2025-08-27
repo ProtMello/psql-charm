@@ -1,4 +1,4 @@
-module sailors
+module neat_reserve
 
 go 1.22
 
