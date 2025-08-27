@@ -1,5 +1,8 @@
 --Find the names of sailors who have reserved all boats
 
+DEALLOCATE ALL;
+
+
 BEGIN;
 
 PREPARE s_all_b AS

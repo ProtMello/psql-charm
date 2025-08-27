@@ -1,5 +1,8 @@
 --Find the sids of sailors with age over 20 who have not reserved a red boat
 
+DEALLOCATE ALL;
+
+
 BEGIN;
 
 PREPARE red_over_20 AS

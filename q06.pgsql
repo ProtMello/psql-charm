@@ -1,5 +1,8 @@
 --Find the names of sailors who have reserved a red and a green boat
 
+DEALLOCATE ALL;
+
+
 BEGIN;
 
 PREPARE sname_rg AS 
@@ -42,15 +45,20 @@ BEGIN;
 PREPARE sname_rg2 AS 
 
 
-WITH redgreen_s AS (
-    SELECT DISTINCT sid
-    FROM boats b
-    JOIN reserves r 
-    ON r.bid = b.id
-    WHERE b.color = 'red'
-    AND b.color = 'green'
+WITH rb AS (
+    SELECT r.sid, b.color
+    FROM reserves r
+    JOIN boats b 
+    ON b.id = r.bid
+),
+redgreen_s AS (
+    SELECT sid FROM rb 
+    WHERE color = 'red'
+    INTERSECT
+    SELECT sid FROM rb 
+    WHERE color = 'green'
 )
-SELECT DISTINCT s.name
+SELECT s.name
 FROM sailors s
 JOIN redgreen_s rg ON rg.sid = s.id;
 

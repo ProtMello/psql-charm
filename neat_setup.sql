@@ -1,5 +1,8 @@
 
 -- Drop existing tables if they exist (to ensure clean slate)
+
+DEALLOCATE ALL;
+
 BEGIN;
 
 PREPARE init_all AS

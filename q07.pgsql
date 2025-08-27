@@ -1,5 +1,8 @@
 --Find the names of sailors who have reserved at least two boats
 
+DEALLOCATE ALL;
+
+
 BEGIN;
 
 PREPARE s_two_b AS

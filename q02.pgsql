@@ -1,5 +1,8 @@
 --Find the names of sailors who have reserved a red boat
 
+DEALLOCATE ALL;
+
+
 BEGIN;
 
 PREPARE s_red AS

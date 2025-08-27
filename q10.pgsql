@@ -1,5 +1,8 @@
 --Find the names of sailors who have reserved all boats called Interlake
 
+DEALLOCATE ALL;
+
+
 BEGIN;
 
 PREPARE int_s AS

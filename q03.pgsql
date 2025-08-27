@@ -1,5 +1,8 @@
 --Find the colors of boats reserved by Lubber
 
+DEALLOCATE ALL;
+
+
 BEGIN;
 
 PREPARE lub_b AS
