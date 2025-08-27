@@ -10,7 +10,7 @@ import (
 
 func main() {
 	ctx := context.Background()
-	conn, err := pgx.Connect(ctx, "postgres://Aeitan:postgres@localhost:5432/neat_reserve?sslmode=disable")
+	conn, err := pgx.Connect(ctx, "postgres://Aeitan:***@localhost:5432/neat_reserve?sslmode=disable")
 	if err != nil {
 		log.Fatal(err)
 	}
