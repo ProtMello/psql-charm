@@ -5,8 +5,6 @@ DEALLOCATE ALL;
 
 BEGIN;
 
-PREPARE init_all AS
-
 
 DROP TABLE IF EXISTS reserves;
 DROP TABLE IF EXISTS boats;
@@ -77,7 +75,5 @@ INSERT INTO reserves (sid, bid, day) VALUES
 (64, 102, '1998-09-08'),
 (74, 103, '1998-09-08');
 
-
-EXECUTE init_all;
 
 COMMIT;
