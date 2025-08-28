@@ -1,4 +1,3 @@
-// main.go
 package main
 
 import (
@@ -25,12 +24,19 @@ func main() {
 	}
 	defer tx.Rollback(ctx)
 
-	q := `SELECT DISTINCT s.name
-	FROM sailors AS s
-	JOIN reserves AS r ON r.sid = s.id
-	WHERE r.bid = $1`
+	q := `WITH rs AS (
+    SELECT DISTINCT s.name,sid,bid
+    FROM sailors s
+    JOIN reserves r
+    ON r.sid = s.id
+	)
+	SELECT DISTINCT rs1.name
+	FROM rs rs1
+	CROSS JOIN rs rs2
+	WHERE rs1.name = rs2.name
+	AND rs1.bid != rs2.bid;`
 
-	rows, err := conn.Query(ctx, q, 103)
+	rows, err := conn.Query(ctx, q)
 	if err != nil {
 		log.Fatal(err)
 	}
